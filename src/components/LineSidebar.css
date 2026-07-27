@@ -1,0 +1,78 @@
+.line-sidebar {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  user-select: none;
+}
+
+.line-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.line-sidebar__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: var(--font-size);
+  font-weight: 500;
+  transform-origin: left center;
+  transition: color 0.2s ease;
+  will-change: transform, color;
+  /* --effect is animated continuously via JS */
+  transform: translateX(calc(var(--effect) * var(--max-shift)));
+}
+
+.line-sidebar__item[aria-current="true"] {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.line-sidebar__marker {
+  position: absolute;
+  left: calc(var(--marker-gap) * -1);
+  top: 50%;
+  width: 2px;
+  height: var(--marker-length);
+  background: var(--marker-color);
+  transform: translateY(-50%) scaleY(var(--tick-scale));
+  transform-origin: center;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.line-sidebar--scale-tick .line-sidebar__marker {
+  transform: translateY(-50%) scaleY(calc(var(--tick-scale) + (1 - var(--tick-scale)) * var(--effect)));
+}
+
+.line-sidebar__item[aria-current="true"] .line-sidebar__marker {
+  background: var(--accent-color);
+}
+
+.line-sidebar__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.line-sidebar__index {
+  font-size: 0.75em;
+  opacity: 0.5;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.line-sidebar__item:hover .line-sidebar__text {
+  color: var(--accent-color);
+}

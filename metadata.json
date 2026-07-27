@@ -1,0 +1,6 @@
+{
+  "name": "Forge Fit",
+  "description": "Forge Fit - An ultra-premium private members athletic and wellness sanctuary featuring bespoke personal coaching, state-of-the-art facilities, luxury recovery lounge, and holistic nutrition.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

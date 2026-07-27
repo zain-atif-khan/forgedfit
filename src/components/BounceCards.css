@@ -1,0 +1,34 @@
+.bounceCardsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.bounceCardsContainer .card {
+  position: absolute;
+  width: 180px;
+  height: 240px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--bg-walnut);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.bounceCardsContainer .card:hover {
+  border-color: rgba(200, 169, 126, 0.8);
+  box-shadow: 0 20px 45px rgba(200, 169, 126, 0.3);
+  z-index: 10;
+}
+
+.bounceCardsContainer .card .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

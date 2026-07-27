@@ -1,0 +1,76 @@
+.border-glow-card {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: var(--border-radius, 28px);
+  background-color: var(--card-bg, #120F17);
+  isolation: isolate;
+  --edge-proximity: 100;
+  --cursor-angle: 0deg;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Luxury gold border shine for all cards */
+.border-glow-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg,
+    rgba(197, 160, 89, 0.45) 0%,
+    rgba(255, 223, 140, 0.25) 25%,
+    rgba(197, 160, 89, 0.1) 50%,
+    rgba(255, 215, 0, 0.35) 75%,
+    rgba(197, 160, 89, 0.5) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.border-glow-card:hover::after {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.5));
+}
+
+.border-glow-card .edge-light {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--cursor-angle) at 50% 50%,
+    transparent 0deg,
+    var(--glow-color, #C5A059) calc(var(--cone-spread, 25) * 1deg),
+    rgba(255, 223, 140, 0.95) calc(var(--cone-spread, 25) * 1.5deg),
+    transparent calc(var(--cone-spread, 25) * 2.5deg)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: calc(var(--edge-proximity, 100) / 100 * var(--fill-opacity, 0.85));
+  transition: opacity 0.25s ease;
+}
+
+.border-glow-card:hover .edge-light,
+.border-glow-card.sweep-active .edge-light {
+  opacity: 1;
+}
+
+.border-glow-inner {
+  position: relative;
+  border-radius: inherit;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}

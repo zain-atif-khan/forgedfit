@@ -1,0 +1,103 @@
+.bento-section {
+  width: 100%;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.magic-bento-card {
+  position: relative;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(200, 169, 126, 0.2);
+  padding: 1.75rem;
+  display: flex;
+  flex-col: column;
+  justify-content: space-between;
+  min-height: 220px;
+  background-color: var(--bg-walnut);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.magic-bento-card--border-glow {
+  background-image: radial-gradient(
+    var(--glow-radius, 300px) circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(var(--glow-color, 200, 169, 126), calc(var(--glow-intensity, 0) * 0.25)) 0%,
+    transparent 70%
+  );
+}
+
+.magic-bento-card:hover {
+  border-color: rgba(200, 169, 126, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.magic-bento-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.magic-bento-card__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(200, 169, 126, 0.9);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(200, 169, 126, 0.1);
+  border: 1px solid rgba(200, 169, 126, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.magic-bento-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.magic-bento-card__title {
+  font-family: serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #F4F7FA;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.magic-bento-card__description {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(244, 247, 250, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.magic-bento-card--text-autohide .magic-bento-card__description {
+  transition: opacity 0.3s ease;
+}
+
+.particle-container {
+  will-change: transform;
+}

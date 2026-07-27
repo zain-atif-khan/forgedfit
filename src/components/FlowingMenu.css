@@ -1,0 +1,127 @@
+.menu-wrap {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.menu__item {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  transition: border-color 0.3s ease;
+}
+
+.menu__item:last-child {
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+}
+
+.menu__item-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.75rem 1.5rem;
+  font-family: var(--font-serif, serif);
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.menu__item-author {
+  font-family: inherit;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menu__item-role {
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+}
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 101%, 0);
+  z-index: 2;
+}
+
+.marquee__inner-wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.marquee__inner {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee__part {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  white-space: nowrap;
+  font-family: var(--font-serif, serif);
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.marquee__part span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.marquee__img {
+  width: 56px;
+  height: 56px;
+  margin: 0 1.5rem;
+  border-radius: 9999px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  border: 2px solid rgba(200, 169, 126, 0.6);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .menu__item-link {
+    padding: 1.25rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .marquee__part {
+    padding: 0 1rem;
+  }
+  .marquee__img {
+    width: 44px;
+    height: 44px;
+    margin: 0 1rem;
+  }
+}

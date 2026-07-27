@@ -1,0 +1,153 @@
+.outer-container {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.step-circle-container {
+  width: 100%;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.step-indicator-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  position: relative;
+  width: 100%;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.step-indicator-inner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.active-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  background-color: currentColor;
+}
+
+.check-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 0.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.step-connector-inner {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.step-content-default {
+  min-height: 280px;
+  width: 100%;
+}
+
+.step-default {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.footer-container {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-nav.spread {
+  justify-content: space-between;
+}
+
+.footer-nav.end {
+  justify-content: flex-end;
+}
+
+.back-button, .next-button {
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+}
+
+.back-button:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.back-button.inactive {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.next-button {
+  background-color: #C8A97E;
+  color: var(--bg-espresso);
+  border: none;
+  box-shadow: 0 4px 15px rgba(200, 169, 126, 0.3);
+}
+
+.next-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 640px) {
+  .step-circle-container {
+    padding: 1.25rem;
+  }
+  .step-indicator-inner {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+}
